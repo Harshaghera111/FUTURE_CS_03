@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="Assets/Cover.png" alt="API Security Risk Analysis" width="720"/>
-
 # API Security Risk Analysis
 
 ### Future Interns – Cyber Security Internship · Task 3

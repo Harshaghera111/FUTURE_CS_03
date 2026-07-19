@@ -1,0 +1,129 @@
+{
+  "info": {
+    "_postman_id": "future-cs-03-api-security-testing",
+    "name": "API Security Testing – JSONPlaceholder",
+    "description": "Postman collection for API Security Risk Analysis assessment.\nFuture Interns – Cyber Security Internship, Task 3.\nTarget: https://jsonplaceholder.typicode.com\nTester: Harsh Aghera\nDate: 17 July 2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://jsonplaceholder.typicode.com",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "GET /users – List All Users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/users",
+          "host": ["{{base_url}}"],
+          "path": ["users"]
+        },
+        "description": "F-01: No authentication required. F-03: Response exposes name, email, address, geo-coordinates, phone, company details for all users."
+      },
+      "response": []
+    },
+    {
+      "name": "GET /posts – List All Posts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/posts",
+          "host": ["{{base_url}}"],
+          "path": ["posts"]
+        },
+        "description": "F-01: No authentication required. Returns 100 fictional post records."
+      },
+      "response": []
+    },
+    {
+      "name": "GET /Comments – List All Comments (case-insensitive routing test)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/Comments",
+          "host": ["{{base_url}}"],
+          "path": ["Comments"]
+        },
+        "description": "F-07: Uppercase 'C' used to test case-insensitive routing. Returns HTTP 200. F-03: Response includes email addresses for each comment."
+      },
+      "response": []
+    },
+    {
+      "name": "GET /albums – List All Albums",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/albums",
+          "host": ["{{base_url}}"],
+          "path": ["albums"]
+        },
+        "description": "F-01: No authentication required. Returns 100 fictional album records."
+      },
+      "response": []
+    },
+    {
+      "name": "GET /photos – List All Photos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/photos",
+          "host": ["{{base_url}}"],
+          "path": ["photos"]
+        },
+        "description": "F-01: No authentication required. Returns 5,000 fictional photo records (129.91 KB response)."
+      },
+      "response": []
+    },
+    {
+      "name": "GET /todos – List All Todos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/todos",
+          "host": ["{{base_url}}"],
+          "path": ["todos"]
+        },
+        "description": "F-01: No authentication required. Returns 200 fictional todo records."
+      },
+      "response": []
+    },
+    {
+      "name": "GET /invalidendpoint – Error Handling Test (Invalid Endpoint)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/invalidendpoint",
+          "host": ["{{base_url}}"],
+          "path": ["invalidendpoint"]
+        },
+        "description": "F-06: Deliberate error test. Expected: HTTP 404. Verify: no stack trace, no internal paths, response body is minimal (expected: {})."
+      },
+      "response": []
+    },
+    {
+      "name": "GET /users/999 – Error Handling Test (Non-Existent Resource)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/users/999",
+          "host": ["{{base_url}}"],
+          "path": ["users", "999"]
+        },
+        "description": "F-06: Deliberate error test for non-existent resource. Expected: HTTP 404. Verify: no internal error details, body is minimal (expected: {})."
+      },
+      "response": []
+    }
+  ]
+}
